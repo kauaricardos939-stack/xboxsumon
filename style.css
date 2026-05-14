@@ -1,0 +1,86 @@
+/* --- BASE --- */
+body {
+    margin: 0; font-family: "Segoe UI", Tahoma, sans-serif;
+    background: #000; overflow: hidden; height: 100vh; 
+    display: flex; flex-direction: column; user-select: none;
+}
+
+#main-dashboard { 
+    display: none; width: 100%; height: 100%; flex-direction: column; 
+    background: linear-gradient(to bottom, #d1d1d1, #999); 
+}
+
+/* --- HEADER --- */
+.header { display: flex; justify-content: center; padding: 15px 0; position: relative; width: 100%; z-index: 10; }
+.tabs { display: flex; gap: 20px; }
+.tabs div { font-size: 14px; font-weight: 600; color: #555; cursor: pointer; text-transform: lowercase; transition: 0.3s; }
+.tabs div.active { color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.6); transform: scale(1.05); }
+.clock { position: absolute; right: 25px; font-size: 14px; font-weight: bold; color: #333; }
+
+/* --- VIEWPORT (Blocos na altura original) --- */
+.viewport { flex: 1; width: 100%; overflow: hidden; perspective: 1000px; }
+.main-container { display: flex; width: 500%; height: 100%; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.page { 
+    width: 20%; height: 100%; display: flex; 
+    justify-content: flex-start; align-items: center; 
+    gap: 10px; padding-left: 5%; 
+    padding-top: 50px; /* Garante que os blocos fiquem centralizados verticalmente */
+    box-sizing: border-box; 
+}
+
+.menu { display: flex; flex-direction: column; gap: 5px; }
+.box { 
+    width: 90px; height: 90px; background: #00aa55; color: white; 
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    border-radius: 2px; font-size: 11px; font-weight: bold; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: 0.1s; cursor: pointer;
+}
+
+.big-panel { 
+    width: 380px; height: 280px; background: #000; border-radius: 5px; 
+    display: flex; align-items: center; justify-content: center; 
+    color: white; position: relative; transition: 0.1s; cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.xbox-logo { width: 40px; height: 40px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #fff, #999); position: relative; margin: 0 auto 10px auto; }
+.xbox-logo::before, .xbox-logo::after { content: ""; position: absolute; width: 28px; height: 3px; background: #00aa55; top: 50%; left: 50%; }
+.xbox-logo::before { transform: translate(-50%, -50%) rotate(45deg); }
+.xbox-logo::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+.pulsar { transform: scale(0.92) !important; }
+
+.panel-content { padding: 25px; text-align: center; pointer-events: none; }
+.panel-content p { font-size: 11px; color: #ccc; line-height: 1.4; }
+
+/* --- KINECT (Sem texto bugado) --- */
+.kinect-container { position: fixed; bottom: 10px; right: 10px; display: flex; flex-direction: column; align-items: flex-end; z-index: 100; }
+.camera-box { width: 80px; height: 45px; border: 1px solid #00aa55; background: #000; border-radius: 3px; overflow: hidden; }
+#camera { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transform: scaleX(-1); }
+#voice-status { background: #00aa55; color: white; padding: 2px 8px; border-radius: 10px; font-size: 9px; margin-bottom: 2px; opacity: 0; transition: 0.3s; }
+
+/* --- LOGIN --- */
+#login-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 50000; background: linear-gradient(to bottom, #d1d1d1, #999); }
+.login-overlay { width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.profiles-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
+.profile-card { display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: 0.6s; width: 140px; position: relative; }
+.avatar-sphere { width: 120px; height: 120px; border-radius: 50%; background: #333; border: 4px solid #444; overflow: hidden; position: relative; }
+.avatar-sphere img { width: 100%; height: 100%; object-fit: cover; }
+
+.delete-btn { 
+    position: absolute; top: -5px; right: -5px; background: #ff4444; color: white; 
+    width: 22px; height: 22px; border-radius: 50%; display: flex; 
+    align-items: center; justify-content: center; font-weight: bold; 
+    border: 2px solid #fff; z-index: 100; 
+}
+
+.login-selected { position: fixed !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) scale(1.6) !important; z-index: 60000 !important; }
+.gamertag { margin-top: 10px; font-weight: bold; color: white; }
+.fade-out { opacity: 0 !important; visibility: hidden; }
+
+/* --- MODAIS --- */
+.modal-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); z-index: 80000; display: none; flex-direction: column; justify-content: center; align-items: center; color: white; }
+.keyboard-box { background: #222; padding: 20px; border: 1px solid #444; width: 600px; }
+.keyboard-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; }
+.key { background: #333; padding: 12px; text-align: center; cursor: pointer; font-weight: bold; }
+.key:hover { background: #00aa55; }

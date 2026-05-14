@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xbox 360 Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+</head>
+<body>
+
+    <div id="login-wrapper">
+        <div class="login-overlay">
+            <h1 id="login-title" style="margin-bottom: 40px; font-weight: 300; color: white;">Quem vai jogar?</h1>
+            <div class="profiles-container" id="profiles-list"></div>
+        </div>
+    </div>
+
+    <div id="main-dashboard">
+        <div class="header">
+            <div class="tabs">
+                <div class="active" onclick="moveTab(0)">home</div>
+                <div onclick="moveTab(1)">social</div>
+                <div onclick="moveTab(2)">jogos</div>
+                <div onclick="moveTab(3)">apps</div>
+                <div onclick="moveTab(4)">configurações</div>
+            </div>
+            <div class="clock" id="sys-clock">00:00</div>
+        </div>
+
+        <div class="viewport">
+            <div class="main-container" id="mainContainer">
+                <div class="page">
+                    <div class="menu">
+                        <div class="box">DISCO</div>
+                        <div class="box">MARCAÇÕES</div>
+                        <div class="box">RECENTES</div>
+                    </div>
+                    <div class="big-panel">
+                        <div class="panel-content">
+                            <div class="xbox-logo"></div>
+                            <p>Conecte seu Xbox 360 à internet para acessar recursos online, sincronizar dados, receber atualizações e aproveitar toda a experiência da sua dashboard em tempo real.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page">
+                    <div class="menu">
+                        <div class="box">AMIGOS</div>
+                        <div class="box">LOJA</div>
+                        <div class="box">ENTRAR/SAIR</div>
+                    </div>
+                </div>
+
+                <div class="page">
+                    <div class="menu">
+                        <div class="box">MEUS JOGOS</div>
+                        <div class="box">PESQUISA</div>
+                        <div class="box">LOJA</div>
+                    </div>
+                    <div class="big-panel">
+                        <div class="panel-content">
+                            <div class="xbox-logo"></div>
+                            <p>Conecte seu Xbox 360 à internet para acessar recursos online, sincronizar dados, receber atualizações e aproveitar toda a experiência da sua dashboard em tempo real.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page">
+                    <div class="menu">
+                        <div class="box">MEUS APPS</div>
+                        <div class="box">PESQUISA</div>
+                        <div class="box">LOJA</div>
+                    </div>
+                    <div class="big-panel">
+                        <div class="panel-content">
+                            <div class="xbox-logo"></div>
+                            <p>Conecte seu Xbox 360 à internet para acessar recursos online, sincronizar dados, receber atualizações e aproveitar toda a experiência da sua dashboard em tempo real.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page"></div>
+            </div>
+        </div>
+
+        <div class="kinect-container">
+            <div id="voice-status">Xbox</div>
+            <div class="camera-box"><video id="camera" autoplay muted></video></div>
+        </div>
+    </div>
+
+    <div id="kb-screen" class="modal-screen">
+        <div class="keyboard-box">
+            <div id="kb-input" style="background:#fff; color:#000; padding:10px; margin-bottom:10px; font-weight:bold; height:45px;"></div>
+            <div class="keyboard-grid" id="kb-keys"></div>
+        </div>
+    </div>
+
+    <script src="perfil.js"></script>
+    <script src="kinect.js"></script>
+</body>
+</html>
